@@ -1,0 +1,27 @@
+// ==UserScript==
+// @name         HelloDBA
+// @namespace    ****
+// @version      0.1
+// @description  try to take over the world!
+// @author       Calvin
+// @match        ****
+// @grant        none
+// @require      https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // Your code here...
+    $(document).ready(function() {
+    $('body').prepend('<input type="button" value="标准变更，变更成功" id="button">');
+    $("#button").on("click", function(){
+        //自动填写承办节点表单
+        $(".xform_inputRadio")[3].children[0].children[1].click() //数据丢失风险-无
+        $(".xform_inputRadio")[4].children[0].children[0].click() //变更类型-标准
+        $(".xform_inputRadio")[5].children[0].children[0].click() //变更结果-成功
+        $(".select_div_box")[1].options[1].selected = true //停机时间
+        $(".xform_textArea")[5].innerHTML = "无" //备份方案
+    });
+    });
+})();
